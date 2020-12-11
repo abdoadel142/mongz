@@ -3,6 +3,7 @@ import 'package:mongz/Views/Login_Screen.dart';
 import 'package:mongz/Views/first_page.dart';
 import 'package:mongz/Views/map_screen.dart';
 import 'package:mongz/Views/test.dart';
+import 'package:mongz/Views/profile_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,8 @@ class _MyAppState extends State<MyApp> {
           LoginScreen.id: (context) => LoginScreen(),
           Home.id: (context) => Home(),
           map_screen.id: (context) => map_screen(),
-          firstPage.id: (context) => firstPage()
+          firstPage.id: (context) => firstPage(),
+          ProfilePage.id: (context) => ProfilePage()
         });
   }
 }

@@ -22,6 +22,8 @@ dependencies:
   google_maps_flutter:
   geolocator: ^6.1.12
   geocoding: ^1.0.5
+  logger: ^0.9.1
+  flutter_secure_storage:
 
 dev_dependencies:
   flutter_test:
@@ -31,4 +33,7 @@ flutter:
 
   uses-material-design: true
   assets:
-    - images/
+    - images/appstore.png
+    - images/as.png
+    - images/logo.png
+    - images/logol.png

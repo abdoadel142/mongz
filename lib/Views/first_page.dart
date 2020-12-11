@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mongz/Views/map_screen.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:mongz/Views/profile_page.dart';
 
 class firstPage extends StatefulWidget {
   static const id = 'first';
@@ -79,6 +80,43 @@ class _firstPageState extends State<firstPage> {
     return await Geolocator.getCurrentPosition();
   }
 
+  Widget profilePhoto = Container(
+    height: 90,
+    width: 90,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(50),
+    ),
+    alignment: Alignment.topRight,
+  );
+
+  void checkProfile() async {
+    // var response = await networkHandler.get("/profile/checkProfile");
+    // setState(() {
+    //   username = response['username'];
+    // });
+    // if (response["status"] == true) {
+    //   setState(() {
+    //     profilePhoto = CircleAvatar(
+    //       radius: 50,
+    //       backgroundImage: NetworkHandler().getImage(response['username']),
+    //     );
+    //   });
+    // } else {
+    setState(() {
+      profilePhoto = Container(
+        height: 90,
+        width: 90,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        alignment: Alignment.topRight,
+      );
+    });
+    // }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,19 +147,42 @@ class _firstPageState extends State<firstPage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text(
-                'Mongz',
-                style: TextStyle(
-                    color: Colors.white, letterSpacing: 6, fontSize: 20),
+              child: Column(
+                children: <Widget>[
+                  profilePhoto,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Mongz",
+                    style: TextStyle(
+                        color: Colors.white, letterSpacing: 6, fontSize: 20),
+                  ),
+                ],
               ),
               decoration: BoxDecoration(
                 color: Colors.orange,
               ),
             ),
+            // DrawerHeader(
+            //   child: Text(
+            //     'Mongz',
+            //     style: TextStyle(
+            //         color: Colors.white, letterSpacing: 6, fontSize: 20),
+            //   ),
+            //   decoration: BoxDecoration(
+            //     color: Colors.orange,
+            //   ),
+            // ),
             ListTile(
               title: Text('Home'),
               trailing: Icon(Icons.home),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
             ),
             Divider(
               height: 10,
